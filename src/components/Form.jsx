@@ -5,7 +5,8 @@ export default function Form(props) {
 
   const addField = (ev) => {
     ev.preventDefault();
-    setCount(count + 1)
+    setCount(count + 1);
+    props.formUpdate();
   }
 
   return (
@@ -13,13 +14,13 @@ export default function Form(props) {
       <form>
         <label htmlFor="color">Color</label>
         <input type="color" name="color" value={props.color} onChange={props.formColorChange}/>
-        <label htmlFor="data1">Enter the First Data</label>
-        <input type="number" name="data1" value={props.data[props.data.length]} onChange={props.formDataChange}/>
+        <label htmlFor="1">Enter the First Data</label>
+        <input type="number" name="1" value={props.data[props.data.length]} onChange={props.formDataChange}/>
         <button onClick={addField}>Add Another</button>
         {Array(count).fill("field").map((form, i) =>
           <>
-            <label htmlFor={`data${i}`}>Enter the Another Data</label>
-            <input type="number" name={`data${i}`} onChange={props.formDataChange}/>
+            <label htmlFor={`${i+1}`}>Enter the Another Data</label>
+            <input type="number" key={`${i+1}`} name={`${i+1}`} onChange={props.formDataChange}/>
             <button onClick={addField}>Add Another</button>
           </>
         )}
