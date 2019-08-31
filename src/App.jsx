@@ -8,7 +8,7 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: [12, 5, 6, 6, 9, 10, 7],
+      data: [10, 70, 2],
       width: 700,
       height: 500,
       color: 'red',
@@ -16,10 +16,36 @@ export default class App extends Component {
       // id: root
     }
   }
+
+  handleFormColorChange = (ev) => {
+    this.setState({
+      color: ev.target.value
+    })
+    console.log(ev.target.value);
+    console.log(this.state.color);
+  }
+
+  handleFormDataChange = (ev) => {
+    this.setState(prevState => ({
+      data: [...prevState.data, ev.target.value]
+    }))
+  }
+
+  // handleFormSubmit = (ev) => {
+  //   ev.preventDefault();
+
+
+  // }
   render() {
     return (
       <div>
-        <Form />
+        <Form
+          color={this.state.color}
+          data={this.state.data}
+          formSubmit={this.handleFormSubmit}
+          formColorChange={this.handleFormColorChange}
+          formDataChange={this.handleFormDataChange}
+        />
         <BarChart
           data={this.state.data}
           width={this.state.width}

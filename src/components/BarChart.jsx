@@ -7,6 +7,11 @@ export default class BarChart extends Component {
     this.drawChart();
   }
 
+  componentDidUpdate() {
+    d3.selectAll("svg > *").remove();
+    this.drawChart();
+  }
+
   drawChart = () => {
     const data = this.props.data;
 
