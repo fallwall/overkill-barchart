@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BarChart from './components/BarChart';
+import Form from './components/Form';
 
 import './App.css';
 
@@ -18,6 +19,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <Form />
         <BarChart
           data={this.state.data}
           width={this.state.width}
