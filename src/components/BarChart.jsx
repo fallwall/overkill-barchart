@@ -28,8 +28,8 @@ export default class BarChart extends Component {
       .attr("width", 65)
       .attr("height", (d, i) => d * 10)
       .attr("fill", this.props.color)
-    
-      svg.selectAll("text")
+
+    svg.selectAll("text")
       .data(data)
       .enter()
       .append("text")
@@ -41,8 +41,8 @@ export default class BarChart extends Component {
 
   render() {
     return (
-      <div>
-        <div id={"#" + this.props.id}></div>
+      <div className="overkill-barchart-container">
+        <div id={"#" + this.props.id} className="overkill-barchart"></div>
       </div>
     )
   }

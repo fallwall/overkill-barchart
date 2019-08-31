@@ -13,15 +13,16 @@ export default function Form(props) {
     <div>
       <form>
         <label htmlFor="color">Color</label>
-        <input type="color" name="color" value={props.color} onChange={props.formColorChange}/>
+        <input type="color" name="color" value={props.color} onChange={props.formColorChange} />
         <label htmlFor="1">Enter the First Data</label>
-        <input type="number" name="1" value={props.data[props.data.length]} onChange={props.formDataChange}/>
-        <button onClick={addField}>Add Another</button>
+        <input type="number" name="1" value={props.data[props.data.length]} onChange={props.formDataChange} />
+        <button onClick={addField}>{props.data.length > 0? "Update": "Add Another"}</button>
         {Array(count).fill("field").map((form, i) =>
           <>
-            <label htmlFor={`${i+1}`}>Enter the Another Data</label>
-            <input type="number" key={`${i+1}`} name={`${i+1}`} onChange={props.formDataChange}/>
-            <button onClick={addField}>Add Another</button>
+            <br />
+            <label htmlFor={`${i + 1}`}>Enter the Another Data</label>
+            <input type="number" key={`${i + 1}`} name={`${i + 1}`} onChange={props.formDataChange} />
+            <button onClick={addField}>{props.data.length-1 > i? "Update": "Add Another"}</button>
           </>
         )}
         {/* <button onClick={props.formSubmit}>Finalize</button> */}

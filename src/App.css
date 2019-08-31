@@ -6,3 +6,11 @@
 input, button {
   display: inline-block;
 }
+
+.overkill-barchart-container {
+  position: absolute;
+  background-color: lightblue;
+  height: 20vh;
+  top: 20vh;
+  left: 5vw;
+}
